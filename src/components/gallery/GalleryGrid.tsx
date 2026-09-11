@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Heart, Download, Share2, Eye, Tag } from 'lucide-react';
+import { Heart, Download, Share2, Eye, Tag, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Photo, mockPhotos } from '@/lib/mock-photo-data';
+import { downloadPhoto } from '@/lib/photo-download';
 
 interface GalleryGridProps {
   limit?: number;
@@ -26,6 +27,9 @@ export function GalleryGrid({
 }: GalleryGridProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [likedPhotos, setLikedPhotos] = useState<Set<string>>(new Set());
+  const [downloadingPhotoId, setDownloadingPhotoId] = useState<string | null>(null);
+  const [downloadError, setDownloadError] = useState<{ photoId: string; message: string } | null>(null);
+  const [downloadedPhotoId, setDownloadedPhotoId] = useState<string | null>(null);
 
   // Filter photos based on selected tags and search query
   const filteredPhotos = mockPhotos.filter(photo => {
@@ -61,6 +65,24 @@ export function GalleryGrid({
       }
       return newLiked;
     });
+  };
+
+  const handleDownload = async (photo: Photo) => {
+    setDownloadingPhotoId(photo.id);
+    setDownloadError(null);
+    setDownloadedPhotoId(null);
+
+    try {
+      await downloadPhoto(photo);
+      setDownloadedPhotoId(photo.id);
+    } catch {
+      setDownloadError({
+        photoId: photo.id,
+        message: `We couldn't download "${photo.title}". Please try again.`,
+      });
+    } finally {
+      setDownloadingPhotoId(null);
+    }
   };
 
   return (
@@ -113,8 +135,18 @@ export function GalleryGrid({
                 >
                   <Heart className={`h-4 w-4 ${likedPhotos.has(photo.id) ? 'fill-current' : ''}`} />
                 </button>
-                <button className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 backdrop-blur-sm transition-colors">
-                  <Download className="h-4 w-4" />
+                <button
+                  onClick={() => handleDownload(photo)}
+                  disabled={downloadingPhotoId === photo.id}
+                  className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 backdrop-blur-sm transition-colors disabled:opacity-60 disabled:cursor-wait"
+                  aria-label={`Download ${photo.title}`}
+                  title={`Download ${photo.title}`}
+                >
+                  {downloadingPhotoId === photo.id ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Download className="h-4 w-4" />
+                  )}
                 </button>
                 <button className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 backdrop-blur-sm transition-colors">
                   <Share2 className="h-4 w-4" />
@@ -169,6 +201,18 @@ export function GalleryGrid({
                 <div className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                   by {photo.photographer}
                 </div>
+              )}
+
+              {downloadError?.photoId === photo.id && (
+                <p className="mt-3 text-sm text-red-600 dark:text-red-400" role="alert">
+                  {downloadError.message}
+                </p>
+              )}
+
+              {downloadedPhotoId === photo.id && (
+                <p className="mt-3 text-sm text-green-600 dark:text-green-400" role="status">
+                  Download started.
+                </p>
               )}
             </div>
           </motion.div>
