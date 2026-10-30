@@ -78,7 +78,7 @@ export default function GalleryPage() {
                   placeholder="Search photos..."
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white/80 dark:bg-slate-800/80 pl-11 pr-4 py-2 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm hover:shadow-md"
+                  className="w-full rounded-xl border border-slate-300 bg-white/80 pl-11 pr-4 py-2 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm hover:shadow-md"
                   aria-label="Search photos"
                 />
               </div>
@@ -103,10 +103,10 @@ export default function GalleryPage() {
                 
                 {/* Filter Dropdown */}
                 {isFilterOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-80 card-base border border-slate-300 dark:border-slate-600 shadow-lg z-10">
+                  <div className="absolute top-full left-0 mt-2 w-80 card-base border border-slate-300 shadow-lg z-10">
                     <div className="p-4">
                       <div className="flex items-center justify-between mb-3">
-                        <h3 className="font-medium text-slate-900 dark:text-white">Filter by Tags</h3>
+                        <h3 className="font-medium text-slate-900">Filter by Tags</h3>
                         {selectedTags.length > 0 && (
                           <button
                             onClick={clearAllTags}
@@ -129,7 +129,7 @@ export default function GalleryPage() {
                               onChange={() => toggleTag(tag)}
                               className="rounded border-slate-300 text-blue-500 focus:ring-blue-500"
                             />
-                            <span className="text-sm text-slate-700 dark:text-slate-300 capitalize">
+                            <span className="text-sm text-slate-700 capitalize">
                               {tag}
                             </span>
                           </label>
@@ -140,11 +140,11 @@ export default function GalleryPage() {
                 )}
               </div>
               
-              <div className="flex border border-slate-300 dark:border-slate-600 rounded-lg overflow-hidden">
+              <div className="flex border border-slate-300 rounded-lg overflow-hidden">
                 <button className="p-2 bg-blue-500 text-white">
                   <Grid className="h-4 w-4" />
                 </button>
-                <button className="p-2 bg-white dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-600">
+                <button className="p-2 bg-white text-slate-600 hover:bg-slate-50">
                   <List className="h-4 w-4" />
                 </button>
               </div>
@@ -155,7 +155,7 @@ export default function GalleryPage() {
           {selectedTags.length > 0 && (
             <div className="mt-4">
               <div className="flex items-center gap-2 mb-2">
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                <span className="text-sm font-medium text-slate-700">
                   Active filters:
                 </span>
               </div>
@@ -168,7 +168,7 @@ export default function GalleryPage() {
                     {tag}
                     <button
                       onClick={() => toggleTag(tag)}
-                      className="hover:bg-blue-200 dark:hover:bg-blue-800 rounded-full p-0.5"
+                      className="hover:bg-blue-200 rounded-full p-0.5"
                     >
                       <X className="h-3 w-3" />
                     </button>

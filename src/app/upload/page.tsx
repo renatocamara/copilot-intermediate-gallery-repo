@@ -17,7 +17,7 @@ export default function UploadPage() {
         </div>
       </SectionContainer>
 
-      <SectionContainer bgColor="bg-slate-100 dark:bg-slate-800/50">
+      <SectionContainer bgColor="bg-slate-100">
         <SectionTitle title="Upload Features" />
         
         {/* Upload Options */}
@@ -51,7 +51,7 @@ export default function UploadPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Gallery Assignment */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Assign to Gallery
               </label>
               <select className="form-select">
@@ -65,7 +65,7 @@ export default function UploadPage() {
 
             {/* Visibility */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Visibility
               </label>
               <select className="form-select">
@@ -78,7 +78,7 @@ export default function UploadPage() {
 
             {/* Tags */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Tags (comma-separated)
               </label>
               <input
@@ -90,7 +90,7 @@ export default function UploadPage() {
 
             {/* Copyright */}
             <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-slate-700 mb-2">
                 Copyright Notice
               </label>
               <input

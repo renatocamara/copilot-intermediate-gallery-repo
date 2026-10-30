@@ -130,7 +130,7 @@ export function GalleryGrid({
                   className={`p-2 rounded-full backdrop-blur-sm transition-colors ${
                     likedPhotos.has(photo.id)
                       ? 'bg-red-500 text-white'
-                      : 'bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700'
+                      : 'bg-white/80 text-slate-700 hover:bg-white'
                   }`}
                 >
                   <Heart className={`h-4 w-4 ${likedPhotos.has(photo.id) ? 'fill-current' : ''}`} />
@@ -138,7 +138,7 @@ export function GalleryGrid({
                 <button
                   onClick={() => handleDownload(photo)}
                   disabled={downloadingPhotoId === photo.id}
-                  className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 backdrop-blur-sm transition-colors disabled:opacity-60 disabled:cursor-wait"
+                  className="p-2 rounded-full bg-white/80 text-slate-700 hover:bg-white backdrop-blur-sm transition-colors disabled:opacity-60 disabled:cursor-wait"
                   aria-label={`Download ${photo.title}`}
                   title={`Download ${photo.title}`}
                 >
@@ -148,7 +148,7 @@ export function GalleryGrid({
                     <Download className="h-4 w-4" />
                   )}
                 </button>
-                <button className="p-2 rounded-full bg-white/80 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-700 backdrop-blur-sm transition-colors">
+                <button className="p-2 rounded-full bg-white/80 text-slate-700 hover:bg-white backdrop-blur-sm transition-colors">
                   <Share2 className="h-4 w-4" />
                 </button>
               </div>
@@ -156,7 +156,7 @@ export function GalleryGrid({
 
             {/* Photo Info */}
             <div className="p-4">
-              <h3 className="font-semibold text-slate-900 dark:text-white mb-2 truncate">
+              <h3 className="font-semibold text-slate-900 mb-2 truncate">
                 {photo.title}
               </h3>
               
@@ -165,7 +165,7 @@ export function GalleryGrid({
                 {photo.tags.slice(0, 3).map(tag => (
                   <span
                     key={tag}
-                    className="inline-flex items-center gap-1 px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-full"
+                    className="inline-flex items-center gap-1 px-2 py-1 bg-slate-100 text-slate-600 text-xs rounded-full"
                   >
                     <Tag className="h-3 w-3" />
                     {tag}
@@ -179,7 +179,7 @@ export function GalleryGrid({
               </div>
 
               {/* Stats */}
-              <div className="flex items-center justify-between text-sm text-slate-500 dark:text-slate-400">
+              <div className="flex items-center justify-between text-sm text-slate-500">
                 <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1">
                     <Heart className="h-4 w-4" />
@@ -198,19 +198,19 @@ export function GalleryGrid({
 
               {/* Photographer */}
               {photo.photographer && (
-                <div className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                <div className="mt-2 text-sm text-slate-600">
                   by {photo.photographer}
                 </div>
               )}
 
               {downloadError?.photoId === photo.id && (
-                <p className="mt-3 text-sm text-red-600 dark:text-red-400" role="alert">
+                <p className="mt-3 text-sm text-red-600" role="alert">
                   {downloadError.message}
                 </p>
               )}
 
               {downloadedPhotoId === photo.id && (
-                <p className="mt-3 text-sm text-green-600 dark:text-green-400" role="status">
+                <p className="mt-3 text-sm text-green-600" role="status">
                   Download started.
                 </p>
               )}
@@ -222,13 +222,13 @@ export function GalleryGrid({
       {/* Empty State */}
       {displayedPhotos.length === 0 && (
         <div className="text-center py-16">
-          <div className="bg-slate-100 dark:bg-slate-800 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+          <div className="bg-slate-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
             <Eye className="h-8 w-8 text-slate-400" />
           </div>
-          <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-300 mb-2">
+          <h3 className="text-lg font-semibold text-slate-700 mb-2">
             {selectedTags.length > 0 || searchQuery ? 'No photos match your filters' : 'No photos yet'}
           </h3>
-          <p className="text-slate-500 dark:text-slate-400">
+          <p className="text-slate-500">
             {selectedTags.length > 0 || searchQuery 
               ? 'Try adjusting your search terms or selected tags' 
               : 'Upload your first photos to get started'
@@ -247,7 +247,7 @@ export function GalleryGrid({
           >
             {isLoading ? 'Loading...' : 'Load More Photos'}
           </button>
-          <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+          <div className="mt-2 text-sm text-slate-500">
             Showing {displayedPhotos.length} of {totalPhotos} photos
           </div>
         </div>
@@ -257,18 +257,18 @@ export function GalleryGrid({
 
       {selectedPhoto && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-auto">
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-2xl font-bold">{selectedPhoto.title}</h2>
                 <button
                   onClick={() => setSelectedPhoto(null)}
-                  className="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200"
+                  className="text-slate-500 hover:text-slate-700"
                 >
                   ✕
                 </button>
               </div>
-              <p className="text-slate-600 dark:text-slate-400">
+              <p className="text-slate-600">
                 Photo details and larger view would be implemented here.
               </p>
             </div>

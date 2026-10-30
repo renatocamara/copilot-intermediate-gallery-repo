@@ -28,7 +28,7 @@ export default function Home() {
       </div>
 
       {/* Quick Upload Section */}
-      <SectionContainer bgColor="bg-white/30 dark:bg-slate-800/30">
+      <SectionContainer bgColor="bg-white/30">
         <SectionTitle title="Quick Upload" className="text-center mb-12" />
         <UploadZone />
       </SectionContainer>
