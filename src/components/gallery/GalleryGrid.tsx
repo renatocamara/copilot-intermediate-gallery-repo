@@ -210,7 +210,7 @@ export function GalleryGrid({
               )}
 
               {downloadedPhotoId === photo.id && (
-                <p className="mt-3 text-sm text-green-600" role="status">
+                <p className="mt-3 text-sm text-green-700" role="status">
                   Download started.
                 </p>
               )}
@@ -228,7 +228,7 @@ export function GalleryGrid({
           <h3 className="text-lg font-semibold text-slate-700 mb-2">
             {selectedTags.length > 0 || searchQuery ? 'No photos match your filters' : 'No photos yet'}
           </h3>
-          <p className="text-slate-500">
+          <p className="text-slate-600">
             {selectedTags.length > 0 || searchQuery 
               ? 'Try adjusting your search terms or selected tags' 
               : 'Upload your first photos to get started'
@@ -247,7 +247,7 @@ export function GalleryGrid({
           >
             {isLoading ? 'Loading...' : 'Load More Photos'}
           </button>
-          <div className="mt-2 text-sm text-slate-500">
+          <div className="mt-2 text-sm text-slate-600">
             Showing {displayedPhotos.length} of {totalPhotos} photos
           </div>
         </div>

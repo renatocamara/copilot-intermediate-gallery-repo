@@ -79,6 +79,15 @@ Once ready, you can access the application at the forwarded port URL provided in
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Application Theme
+
+The application always uses a light theme, including when the operating system
+prefers dark mode. Shared styles and components use light backgrounds with
+readable foreground colors, and native form controls inherit `color-scheme: light`.
+There is no automatic dark-mode switch or theme toggle.
+
+Run `npm run test:theme` to check the light-theme policy and shared color contrast.
+
 ## Agentic Issue Labeling
 
 The separate [Issue area labeler](.github/workflows/issue-area-labeler.md) runs

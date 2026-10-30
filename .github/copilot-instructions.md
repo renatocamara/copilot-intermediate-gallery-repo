@@ -73,10 +73,11 @@ src/
 ```
 
 ### Styling Conventions
-1. Use Tailwind's color scale with dark mode support
+1. Use Tailwind's color scale with the application's light-only theme. Do not
+   add dark-mode variants or system-preference overrides.
    ```tsx
-   className="text-slate-900 dark:text-white"
-   className="bg-white dark:bg-slate-800"
+   className="text-slate-900"
+   className="bg-white"
    ```
 
 2. Follow gradient background pattern
@@ -121,5 +122,5 @@ npm run dev  # Starts development server with Turbopack
 
 4. **Styling**
    - Use Tailwind classes for styling
-   - Follow dark mode patterns
+   - Preserve the light theme regardless of the operating system's color preference
    - Maintain responsive design

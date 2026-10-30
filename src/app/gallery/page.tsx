@@ -78,7 +78,7 @@ export default function GalleryPage() {
                   placeholder="Search photos..."
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white/80 pl-11 pr-4 py-2 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm hover:shadow-md"
+                  className="w-full rounded-xl border border-slate-300 bg-white/80 pl-11 pr-4 py-2 text-slate-900 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition shadow-sm hover:shadow-md"
                   aria-label="Search photos"
                 />
               </div>

@@ -19,7 +19,7 @@ export function SectionTitle({
       <h3 className="text-3xl font-bold">{title}</h3>
       {children}
       {viewAllLink && (
-        <Link href={viewAllLink} className="text-blue-600 hover:text-blue-700 font-medium">
+        <Link href={viewAllLink} className="text-blue-700 hover:text-blue-800 font-medium">
           View All →
         </Link>
       )}

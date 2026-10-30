@@ -2,6 +2,9 @@
 
 Our newly created UI components are designed for reuse across various pages in the application. Here's a guide on how to use them in different contexts:
 
+The application uses a light theme regardless of the system color preference.
+Use light backgrounds and readable foreground colors in new components.
+
 ## Import the Components
 
 ```tsx
@@ -20,7 +23,7 @@ import {
 ```tsx
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section with title and description */}
       <Hero 
         title="Professional Photo Gallery & Portfolio" 
@@ -43,7 +46,7 @@ export default function Home() {
       </div>
 
       {/* Sections with custom background colors */}
-      <SectionContainer bgColor="bg-white/30 dark:bg-slate-800/30">
+      <SectionContainer bgColor="bg-white/30">
         <SectionTitle title="Quick Upload" className="text-center mb-12" />
         <UploadZone />
       </SectionContainer>
@@ -63,7 +66,7 @@ export default function Home() {
 ```tsx
 export default function GalleryPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Hero 
         title="Browse Your Photography Collection" 
         description="View, filter, and organize your images by collection, tag, or date."
@@ -84,13 +87,13 @@ export default function GalleryPage() {
         </div>
       </SectionContainer>
 
-      <SectionContainer bgColor="bg-white/30 dark:bg-slate-800/30">
+      <SectionContainer bgColor="bg-white/30">
         <SectionTitle 
           title="All Photos" 
           className="flex justify-between"
         >
           <div className="flex space-x-2">
-            <select className="px-3 py-2 bg-white dark:bg-slate-700 rounded border border-slate-200 dark:border-slate-600">
+            <select className="px-3 py-2 bg-white rounded border border-slate-200">
               <option>Recent First</option>
               <option>Oldest First</option>
               <option>A-Z</option>
@@ -112,7 +115,7 @@ export default function GalleryPage() {
 ```tsx
 export default function AdminPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Hero
         title="Admin Dashboard"
         description="Manage your galleries, clients, and portfolio"
@@ -129,7 +132,7 @@ export default function AdminPage() {
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
+            <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
               {/* Stat content */}
             </div>
           ))}
@@ -143,7 +146,7 @@ export default function AdminPage() {
 
         {/* Galleries Table */}
         <SectionTitle title="Recent Galleries" viewAllLink="/admin/galleries" />
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
           {/* Table content */}
         </div>
       </SectionContainer>
@@ -157,7 +160,7 @@ export default function AdminPage() {
 ```tsx
 export default function UploadPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
       <Hero 
         title="Upload Your Photos" 
         description="Drag and drop your photos for automatic optimization and organization."
@@ -168,9 +171,9 @@ export default function UploadPage() {
         <UploadZone />
       </SectionContainer>
       
-      <SectionContainer bgColor="bg-white/30 dark:bg-slate-800/30">
+      <SectionContainer bgColor="bg-white/30">
         <SectionTitle title="Upload Settings" />
-        <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
+        <div className="bg-white p-6 rounded-xl shadow-sm">
           {/* Settings content */}
         </div>
       </SectionContainer>
@@ -198,7 +201,7 @@ function StatsSection({ stats }) {
       <SectionTitle title="Statistics" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
+          <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
             {/* Stat content */}
           </div>
         ))}

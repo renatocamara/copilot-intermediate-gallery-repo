@@ -101,10 +101,10 @@ export function UploadZone({ onUpload, maxFiles = 10, className = "" }: UploadZo
             <h3 className="text-xl font-semibold text-slate-700 mb-2">
               {isDragActive ? 'Drop your images here!' : 'Upload your photos'}
             </h3>
-            <p className="text-slate-500">
+            <p className="text-slate-600">
               Drag and drop your images here, or click to browse
             </p>
-            <p className="text-sm text-slate-400 mt-2">
+            <p className="text-sm text-slate-600 mt-2">
               Supports JPEG, PNG, GIF, WebP up to 10MB each
             </p>
             </div>
@@ -171,7 +171,7 @@ export function UploadZone({ onUpload, maxFiles = 10, className = "" }: UploadZo
                     )}
                     
                     {fileObj.status === 'success' && (
-                      <div className="flex items-center gap-2 text-green-600 text-sm">
+                      <div className="flex items-center gap-2 text-green-700 text-sm">
                         <CheckCircle className="h-4 w-4" />
                         <span>Upload complete</span>
                       </div>
