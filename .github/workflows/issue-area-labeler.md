@@ -21,7 +21,7 @@ tools:
     allowed: [issue_read]
     read-only: true
     min-integrity: none
-    allowed-repos: "${{ github.repository }}"
+    allowed-repos: ["${{ github.repository }}"]
 safe-outputs:
   add-labels:
     allowed: [Frontend, Backend, Data]
