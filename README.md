@@ -79,6 +79,44 @@ Once ready, you can access the application at the forwarded port URL provided in
    ```
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Agentic Issue Labeling
+
+The separate [Issue area labeler](.github/workflows/issue-area-labeler.md) runs
+when an issue is opened. It adds any applicable combination of `Frontend` (UI),
+`Backend` (server/API), and `Data` (an explicitly mentioned database change).
+Each label is added at most once, existing labels are preserved, and issues with
+no clear match are left unchanged. It does not replace other labeling workflows.
+
+Before the first run:
+
+1. Enable GitHub Actions and ensure the repository labels `Frontend`, `Backend`,
+   and `Data` exist. Create missing labels in the repository's Labels page.
+2. Add the Actions repository secret `COPILOT_GITHUB_TOKEN`: a fine-grained PAT
+   owned by an account with an active Copilot license, with the account permission
+   **Copilot Requests: Read**. A local GitHub CLI login is not sufficient.
+3. Commit the Markdown workflow, its generated `issue-area-labeler.lock.yml`,
+   and the compiler-generated `.github/aw/actions-lock.json` and `.gitattributes`
+   to the default branch. The issue-opened trigger only runs from that branch.
+
+The agent can only read issues in the current repository. Its read policy
+explicitly permits untrusted content so newly opened issues from outside
+contributors can be classified, and the prompt treats issue text as data rather
+than instructions. A separate safe-output job can add only the three allowed
+labels to the triggering issue. Each eligible issue can consume Copilot usage.
+The workflow does not run on edits, reopened issues, or label changes. Maintainers
+can correct classifications manually.
+
+After changing the workflow, regenerate its lock file using the GitHub CLI's
+`gh aw` extension (initially compiled with v0.86.2):
+
+```shell
+gh aw compile issue-area-labeler
+```
+
+For a manual smoke test after setup, open issues describing UI-only, API-only,
+database-only, combined, and unrelated changes. Expect `Frontend`, `Backend`,
+`Data`, the matching combination, and no new label, respectively.
+
 ## Project Structure
 
 ```bash
