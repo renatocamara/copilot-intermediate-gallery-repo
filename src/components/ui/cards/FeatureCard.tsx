@@ -19,7 +19,7 @@ export function FeatureCard({ icon: Icon, title, description, iconColor }: Featu
         iconColor
       }`} />
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-slate-600 dark:text-slate-300">
+      <p className="text-slate-600">
         {description}
       </p>
     </div>

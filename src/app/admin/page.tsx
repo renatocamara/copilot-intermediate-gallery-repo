@@ -48,27 +48,27 @@ export default function AdminPage() {
         <div className="card-base overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-slate-50 dark:bg-slate-700">
+              <thead className="bg-slate-50">
                 <tr>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Gallery Name
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Type
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Photos
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Views
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Status
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Last Updated
                   </th>
-                  <th className="text-left py-3 px-6 font-medium text-slate-700 dark:text-slate-300">
+                  <th className="text-left py-3 px-6 font-medium text-slate-700">
                     Actions
                   </th>
                 </tr>
@@ -77,7 +77,7 @@ export default function AdminPage() {
                 {recentGalleries.map((gallery) => (
                   <tr key={gallery.id} className="table-row">
                     <td className="py-4 px-6">
-                      <div className="font-medium text-slate-900 dark:text-white">
+                      <div className="font-medium text-slate-900">
                         {gallery.name}
                       </div>
                     </td>
@@ -91,10 +91,10 @@ export default function AdminPage() {
                         {gallery.type}
                       </span>
                     </td>
-                    <td className="py-4 px-6 text-slate-600 dark:text-slate-400">
+                    <td className="py-4 px-6 text-slate-600">
                       {gallery.photos}
                     </td>
-                    <td className="py-4 px-6 text-slate-600 dark:text-slate-400">
+                    <td className="py-4 px-6 text-slate-600">
                       {gallery.views.toLocaleString()}
                     </td>
                     <td className="py-4 px-6">
@@ -106,7 +106,7 @@ export default function AdminPage() {
                         {gallery.status}
                       </span>
                     </td>
-                    <td className="py-4 px-6 text-slate-600 dark:text-slate-400">
+                    <td className="py-4 px-6 text-slate-600">
                       {gallery.lastUpdated}
                     </td>
                     <td className="py-4 px-6">

@@ -3,17 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  color-scheme: light;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -27,12 +21,6 @@ body {
   background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page-gradient {
-    background: linear-gradient(to bottom right, #0f172a, #1e293b);
-  }
-}
-
 /* ==========================================================================
    UI Component Patterns - Standard CSS for compatibility
    ========================================================================== */
@@ -42,12 +30,6 @@ body {
   background-color: #ffffff;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .card-base {
-    background-color: #1e293b;
-  }
 }
 
 .card-elevated {
@@ -61,12 +43,6 @@ body {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .card-elevated {
-    background-color: #1e293b;
-  }
-}
-
 .card-feature {
   background-color: #ffffff;
   padding: 2rem;
@@ -74,23 +50,11 @@ body {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  .card-feature {
-    background-color: #1e293b;
-  }
-}
-
 .card-stats {
   background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 0.75rem;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .card-stats {
-    background-color: #1e293b;
-  }
 }
 
 /* Button Patterns */
@@ -124,20 +88,9 @@ body {
   background-color: #f9fafb;
 }
 
-@media (prefers-color-scheme: dark) {
-  .btn-secondary {
-    border-color: #4b5563;
-    color: #d1d5db;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #374151;
-  }
-}
-
 .btn-icon {
   padding: 0.25rem;
-  color: #9ca3af;
+  color: #6b7280;
   transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   background: none;
   border: none;
@@ -168,24 +121,14 @@ body {
   color: #111827;
 }
 
-@media (prefers-color-scheme: dark) {
-  .nav-link {
-    color: #d1d5db;
-  }
-  
-  .nav-link:hover {
-    color: #ffffff;
-  }
-}
-
 .nav-link-active {
-  color: #2563eb;
+  color: #1d4ed8;
   font-weight: 500;
   text-decoration: none;
 }
 
 .nav-link-active:hover {
-  color: #1d4ed8;
+  color: #1e40af;
 }
 
 /* Form Elements */
@@ -211,19 +154,6 @@ body {
   border-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  .form-input,
-  .form-select {
-    border-color: #4b5563;
-    background-color: #374151;
-    color: #ffffff;
-  }
-  
-  .form-input::placeholder {
-    color: #9ca3af;
-  }
-}
-
 /* Status Elements */
 .status-badge {
   display: inline-flex;
@@ -247,23 +177,6 @@ body {
 .status-draft {
   background-color: #fed7aa;
   color: #9a3412;
-}
-
-@media (prefers-color-scheme: dark) {
-  .status-active {
-    background-color: #14532d;
-    color: #bbf7d0;
-  }
-  
-  .status-private {
-    background-color: #581c87;
-    color: #e9d5ff;
-  }
-  
-  .status-draft {
-    background-color: #9a3412;
-    color: #fed7aa;
-  }
 }
 
 /* Color System Classes */
@@ -314,13 +227,6 @@ body {
   background-color: #fed7aa;
 }
 
-@media (prefers-color-scheme: dark) {
-  .icon-container-blue { background-color: #1e3a8a; }
-  .icon-container-green { background-color: #14532d; }
-  .icon-container-purple { background-color: #581c87; }
-  .icon-container-orange { background-color: #9a3412; }
-}
-
 /* Hover Patterns */
 .hover-lift {
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -342,12 +248,6 @@ body {
   background-color: #f9fafb;
 }
 
-@media (prefers-color-scheme: dark) {
-  .hover-bg:hover {
-    background-color: rgba(55, 65, 81, 0.5);
-  }
-}
-
 /* Progress Bar */
 .progress-bar {
   width: 100%;
@@ -361,12 +261,6 @@ body {
   height: 0.5rem;
   border-radius: 9999px;
   transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .progress-bar {
-    background-color: #374151;
-  }
 }
 
 /* Drag and Drop */
@@ -388,20 +282,6 @@ body {
   border-color: #60a5fa;
 }
 
-@media (prefers-color-scheme: dark) {
-  .drop-zone {
-    border-color: #4b5563;
-  }
-  
-  .drop-zone-active {
-    background-color: rgba(59, 130, 246, 0.1);
-  }
-  
-  .drop-zone-inactive:hover {
-    border-color: #3b82f6;
-  }
-}
-
 /* Table Patterns */
 .table-row {
   border-bottom: 1px solid #e5e7eb;
@@ -410,16 +290,6 @@ body {
 
 .table-row:hover {
   background-color: #f9fafb;
-}
-
-@media (prefers-color-scheme: dark) {
-  .table-row {
-    border-color: #374151;
-  }
-  
-  .table-row:hover {
-    background-color: rgba(55, 65, 81, 0.5);
-  }
 }
 
 /* Additional Button Variations */
@@ -449,10 +319,4 @@ body {
 
 .gallery-card:hover {
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .gallery-card {
-    background-color: #1e293b;
-  }
 }

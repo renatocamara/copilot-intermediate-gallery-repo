@@ -18,10 +18,10 @@ export function StatsGrid({ stats }: StatsGridProps) {
         <div key={index} className="card-stats">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
+              <p className="text-sm font-medium text-slate-600">
                 {stat.label}
               </p>
-              <p className="text-2xl font-bold text-slate-900 dark:text-white mt-1">
+              <p className="text-2xl font-bold text-slate-900 mt-1">
                 {stat.value}
               </p>
             </div>
